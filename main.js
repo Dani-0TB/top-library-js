@@ -73,8 +73,28 @@ function updateDisplay()
     for (let i = 0; i < libraryList.length; i++)
     {
         let bookCard = createBookCard(libraryList[i]);
+        bookCard.setAttribute("data-index", i);
+        let btnRemove = bookCard.querySelector(".btn-remove");
+        let btnToggleRead = bookCard.querySelector(".btn-toggle");
+        
+        btnRemove.addEventListener("click", removeBook);
+        btnToggleRead.addEventListener("click", toggleBookRead);
+
         display.appendChild(bookCard);
     }
+}
+
+function removeBook(event) {
+    let card = event.target.parentNode.parentNode;
+    libraryList.splice(card.dataset.index, 1);
+    updateDisplay();
+}
+
+function toggleBookRead(event) {
+    let card = event.target.parentNode.parentNode;
+    let book = libraryList[card.dataset.index];
+    book.read = !book.read;
+    updateDisplay();
 }
 
 function createBookCard(book)
@@ -102,9 +122,25 @@ function createBookCard(book)
     read.className = `${book.read ? "book-read" : "book-not-read"}`
     card.appendChild(read);
 
+    card.appendChild(document.createElement("hr"))
+
+    const buttons = document.createElement("div");
+    buttons.className = "button-group"
+    
+    const toggleRead = document.createElement("button");
+    toggleRead.className = "btn-toggle";
+    toggleRead.innerText = `Toggle Read`;    
+    buttons.appendChild(toggleRead);
+
+    const removeBtn = document.createElement("button");
+    removeBtn.className = "btn-remove";
+    removeBtn.innerText = "Remove"
+    buttons.appendChild(removeBtn);
+
+    card.appendChild(buttons);
+
     return card;
 }
-
 
 populateLibrary();
 updateDisplay();

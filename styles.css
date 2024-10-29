@@ -67,7 +67,7 @@ html {
 }
 
 .book-card {
-    height: 300px;
+    max-height: 300px;
     width: 400px;
     flex: 1 1 auto;
     padding: 1rem;
@@ -103,6 +103,37 @@ html {
 
 .book-not-read {
     color: brown;
+}
+
+.btn-remove {
+    padding: 0.5rem 1rem;
+    background-color: #ca4c3b;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.btn-remove:hover {
+    background-color: #b64435;
+    cursor: pointer;
+}
+
+.button-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-toggle {
+    padding: 0.5rem 1rem;
+    background-color: #8f634f;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.btn-toggle:hover {
+    background-color: #724f3f;
+    cursor: pointer;
 }
 
 .modal {
@@ -173,4 +204,8 @@ html {
 .error-close:hover {
     color: rgb(172, 17, 17);
     cursor: pointer;
+}
+
+.book-card > hr {
+    width: 100%;
 }
