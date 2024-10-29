@@ -45,6 +45,10 @@ function Book(title = "", author = "", pages = 1, read = false)
     this.pages = pages;
     this.read = read;
     
+    this.toggleRead = function() {
+        this.read = !this.read;
+    }
+
     // Methods
     this.info = function() {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${read ? "read" : "not read yet"}`;
@@ -93,7 +97,7 @@ function removeBook(event) {
 function toggleBookRead(event) {
     let card = event.target.parentNode.parentNode;
     let book = libraryList[card.dataset.index];
-    book.read = !book.read;
+    book.toggleRead();
     updateDisplay();
 }
 
