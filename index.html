@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library.js</title>
+  <script defer src="./main.js"></script>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="header">
+      <h1 class="title">Library APP</h1>
+      <button type="button" class="btn-add">Add Book</button>
+    </div>
+    <div class="library-display">
+
+    </div>
+    <dialog class="modal">
+      <div class="error mb hidden">
+        <p>There was an error submiting the form.</p>
+      </div>
+      <form id="newBookForm" action="submit" method="dialog">
+        <h3 class="modal-title">Add new Book</h3>
+        <hr>
+        <div class="form-control">
+          <label for="book-title" class="mb">Title</label>
+          <input type="text" name="book-title">
+        </div>
+        <div class="form-control">
+          <label for="book-author" class="mb">Author</label>
+          <input type="text" name="book-author">
+        </div>
+        <div class="form-control">
+          <label for="book-pages" class="mb">Pages</label>
+          <input type="number" name="book-pages">
+        </div>
+        <div class="form-checkbox mb">
+          <label for="book-read" class="mb">Read</label>
+          <input type="checkbox" name="book-read">
+        </div>
+        <hr class="mb">
+      </form>
+      <input class="btn-submit" type="submit" form="newBookForm" value="Add"></input>
+    </dialog>
+  </div>
+</body>
+</html>
